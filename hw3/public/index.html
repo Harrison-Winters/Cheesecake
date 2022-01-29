@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+
+<!-- Author: Harrison Winters-->
+<html>
+    <head>
+        <title>Cheesecake Order Form</title>
+        <link rel="stylesheet" href="stylesheets/HW1.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $( document ).ready(function() {
+
+                    //For Drop down months
+                    $("#monthJan").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Jan</p>")
+                    });
+                    $("#monthFeb").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Feb</p>")
+                    });
+                    $("#monthMar").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Mar</p>")
+                    });
+                    $("#monthApr").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Apr</p>")
+                    });
+                    $("#monthMay").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>May</p>")
+                    });
+                    $("#monthJun").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Jun</p>")
+                    });
+                    $("#monthJul").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Jul</p>")
+                    });
+                    $("#monthAug").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Aug</p>")
+                    });
+                    $("#monthSep").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Sep</p>")
+                    });
+                    $("#monthOct").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Oct</p>")
+                    });
+                    $("#monthNov").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Nov</p>")
+                    });
+                    $("#monthDec").on("click", function(){
+                       $("#currMonth").replaceWith("<p id='currMonth'>Dec</p>")
+                    });
+                    
+                 
+
+                
+            
+                    $("#order").on("click", function(){
+                        var value = $('#instruct').val();
+                        if(~value.indexOf('vegan')) {
+                            alert("Warning: Cheesecake contains dairy");
+                        }
+                        
+                    
+                        else {
+                            $("form").toggle();
+                            $("textarea").replaceWith("<h2>Thank you for your order!</h2><p>Order Details:</p>");
+                            $("#order").toggle();
+
+
+                            //Display details
+
+                            //For Radio Buttons:
+                            var ele = document.getElementsByName('topping');
+                
+                            for(i = 0; i < ele.length; i++) {
+                                if(ele[i].checked)
+                                document.getElementById("details").innerHTML = "Topping: "+ele[i].value;
+
+                            }
+                            //For Dropdown Menu (num toppings):
+                            var select = document.getElementById('topnum');
+                            var num = select.options[select.selectedIndex].value;
+                            document.getElementById("quantity").innerHTML = "Quantity: "+ num;
+                            document.getElementById("notes").innerHTML = "Notes: "+ value;
+                    
+                        }
+         
+
+                });
+
+            });   
+                
+                
+        </script>
+
+    </head>
+
+    <body>
+        <div class="center">
+            <h1>Cheesecake Order Form</h1>
+            
+            <!-- Insert scaled Cheesecake image with link -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg/800px-Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg" alt="cheesecake" style="width:150px;height:150px" class="center";>
+            <br>
+            <label>Quantity Topping</label>
+
+            <!--Topping Form-->
+            <table style="width:20%">
+                <tr>
+                    <td>
+                        <!--Dropdown Box-->
+                        <form> 
+                            <select name="topnum" id="topnum">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </form> 
+                    </td>
+                
+                    <td>
+                        <!--Radio Buttons-->
+                        <form id="mainForm">
+                            <input type="radio" id="plain" name="topping" value="Plain" checked>
+                            <label for="plain">Plain</label>
+                            <br>
+                            <input type="radio" id="cherry" name="topping" value="Cherry">
+                            <label for="cherry">Cherry</label>
+                            <br>
+                            <input type="radio" id="chocolate" name="topping" value="Chocolate">
+                            <label for="chocolate">Chocolate</label>
+                            <br>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+
+            
+                
+            <!--Textbox allowing entry-->
+            <label for="instruct">Notes:</label>
+            <br>
+            <textarea id="instruct" name="instruction" rows="5" cols="50">Enter any special instructions here.</textarea>
+            <br>
+            <br>
+
+            <!--This is where order details will go-->
+            <div id="details"></div>
+            <div id="quantity"></div>
+            <div id="notes"></div>
+            
+
+            <!--Order Button-->
+            <button id="order" type="button">Order</button>
+
+            <h3>Orders for: </h3>
+            <ul id='menu' >
+                
+                <li class="menuClass">
+                    <p id="currMonth">Jan</p>
+                    <ul>
+                        <button id="monthJan">Jan</button>
+                        <button id="monthFeb">Feb</button>
+                        <button id="monthMar">Mar</button>
+                        <button id="monthApr">Apr</button>
+                        <button id="monthJun">Jun</button>
+                        <button id="monthJul">Jul</button>
+                        <button id="monthAug">Aug</button>
+                        <button id="monthSep">Sep</button>
+                        <button id="monthOct">Oct</button>
+                        <button id="monthNov">Nov</button>
+                        <button id="monthDec">Dec</button>
+                    </ul>
+                </li>
+            </ul>
+
+
+
+            <!--Order Bullet List-->
+            <ul>
+                <li>11 cherry</li>
+                <li>17 chocolate</li>
+                <li>31 plain </li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+/* Author: Harrison Winters */
+ 
+ 
+ h1 {
+    color: tomato;
+    margin-left: 20px;
+    border: 5px dashed red;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    width: max-content;
+    background-color: tan;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+  
+  }
+
+ 
+  body
+  {
+    background-image: url("https://northseattledds.com/wp-content/uploads/2017/10/pink-yellow-pattern.jpg");
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+
+  img {
+    border: 5px solid red;
+  }
+
+
+  /*Code based off of http://jsfiddle.net/5RcxF/ */
+  #menu > li {
+    display:inline-block;
+    border:1px solid grey;
+    position:relative;
+}
+#menu li ul {
+    position:absolute;
+    background-color: blanchedalmond;
+    border:1px solid grey;
+    display: inline-block;
+    max-height:0;
+    overflow:hidden;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+#menu li:hover ul {
+    overflow-y:scroll;
+    max-height:50px;
+}
+
+.menuClass{
+  display:inline-table
+
+}
